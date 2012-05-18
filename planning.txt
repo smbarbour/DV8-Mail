@@ -1,0 +1,111 @@
+All commands and their respective permissions nodes will be listed at the bottom along with what they do.
+
+ 1) The ability to automatically add users to a "list" when they join.
+    Players should be removed from this list after X amount of days. This should be configurable. 
+    This list is what the plugin should look to when trying to send mail to a user.
+    If the user is not on this list, the message will not be sent.
+    
+ 2) Check to see that the message is actually addressed to a real user.
+    When users send messages, it should check the list for the username that the message is being sent to.  
+    If the username is not present in the list, then it should not send the message to the database for storage
+    and should report to the player that the message was not sent due to the username not being on the list.
+    
+ 3) The ability to send messages to users, offline or online.(of course :D)
+    Example:  Bob and Andy are friends.  Bob found diamonds and wants to tell Andy.  
+    Well, Andy is offline, so Bob types the command /mail send Andy Diamonds hey man! i founds Diamonds!!! :DD
+    Command syntax: /mail send <username> <subject> <message>
+    
+ 4) An alert message on join and on receiving mail.
+    When you receive mail while in game, it would say something to only the player.
+    Personally the classic "You got mail!" is appealing to me, but this should be configurable in the config.
+    Also, when you join the server, if you have any unread mail, it will alert you by saying 
+    "You have unread mail in your inbox!
+     Use "/mail inbox" to view your mail!"      (2 lines)
+    
+ 5) The ability to view your Inbox.
+    Lets use the same example with Bob and Andy
+    Well, when Andy joins the server, he sees the "You have unread mail in your inbox!" message 
+    so he types /mail inbox.  The following would be shown.
+    ------------Mail Inbox-----------------
+    <from>         <date>       <subject>
+    Bob            1/1/12        Diamonds
+    
+ 6) The ability to read individual mail.
+    Andy sees that Bob sent him a message called "Diamonds" and wants to check the message.
+    So, Andy types: /mail read Diamonds   (Command Syntax: /mail read <subject>)
+    to read the message and the following is shown:
+    ----------------Message-------------
+    From: Bob          Subject: Diamonds
+    hey man! i found Diamonds!!! :DD
+    
+    (Not sure, but if 2 people sent a message with the same Subject, it might cause problems.  
+     Maybe load the latest first? then the other? I dont know, we can talk about it.)
+ 
+ 7) Messages that have been read need to somehow marked that they have been read.
+    This could be done by possibly changing the color of the text that displays it (which would be preferable)
+    Color_Aqua = read
+    Color_Red = not-read
+    
+ 8) The ability to delete mail.
+    After Andy finishes reading the message from Bob, he no longer wants to keep it.
+    So he types: /mail inbox  to see that the subject name is "Diamonds", then types:
+    /mail delete Diamonds  (Command Syntax: /mail delete <subject>
+    A message then would be displayed: "Diamonds" has been deleted.
+ 
+ 9) A "help" portion of the plugin that shows commands and uses.
+    Lets say someone wants to know how to use the plugin, they type /mail and it would bring up a 
+    page with the commands, their syntax's and what they do.
+    
+10) A "fail-safe" in the plugin that if you messup a command, it doesnt just give a default bukkit error message,
+    it either shows the proper syntax and how to use it, or directs the user to use /mail for help.
+    (would prefer showing of the proper syntax)
+    
+11) An auto deleting of old messages after X amount of time
+    There should be 2 options for this.
+    1) amount of time until the deletion of read messages
+    2) amount of time until the deletion of unread messages.
+    The timing calculation of "time till deletion" should be per message, not the deletion of
+    the whole inbox.
+ 
+12) The ability to completely empty your inbox.
+    Personally, I can see that some people are going to get TONS of mail, 
+    so an easy way to remove all mail at once would be REALLY nice.
+    Example:  /mail inbox empty
+    When you do this command it says "Delete everything from your inbox? This is not reversable. (Y or N)"
+    
+13) The ability to message everyone at once with the same message.  
+    The plugin needs to pull the names from the "list" specified earlier when sending out the message to everyone.
+    If an admin had to send out a "PSA", then they could type:
+    /mail all NEWS! Hey guys, Andy has been made moderator! (Command Syntax: /mail all <subject> <message>)
+
+14) Special setup for recieving mail from admins.
+    If a user recieves mail from a user that has the node "mail.adminmsg", then there should be something that shows that the sender is an admin
+    This could be as simple as having all normal users set to a "normal" color, but when showing an admin, have the color for their name set to red?
+    Not sure on how difficult this may be, just a thought.  Not deal-breaking, just an interesting idea.
+    
+15) The ability for the console to send messages.
+    Admins need to be able to use the mail plugin from the console that way they dont need to login to the server.
+    This is a MUST HAVE for me because I dont login to the server anymore because of bad fps.
+    Not quite sure how you would handle the console sending the mail since there is no player to be displayed as the "sender" when 
+    someone would check their mail and see a message sent from the console.
+    Maybe as the sender, you could call the console "CONSOLE" in red, or something similar.
+    Also, ofcourse, people would not be able to message the console. It would be a 1 way deal, so that would mean that the only commands
+    avalible to the console would be /mail send  and /mail all.
+    
+
+    
+ 
+    
+  Commands:                                             Permissions nodes:                           non-permissions:    
+    /mail                                                         Default to all users                      non-OP  
+    /mail inbox                                                   mail.inbox    mail.user                   non-OP
+    /mail inbox empty                                             mail.empty    mail.user                   non-OP
+    /mail send <username> <subject> <message>                     mail.send     mail.user                   non-OP       
+    /mail read <subject>                                          mail.read     mail.user                   non-OP      
+    /mail delete <subject>                                        mail.delete   mail.user                   non-OP
+    /mail all <subject> <message>                                 mail.all      mail.admin                  OP
+  Config:
+    
+    (not done with the list yet)
+    //TODO - add stuff about commands and permissions
+    //TODO - ALOT MORE
