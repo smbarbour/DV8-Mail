@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Scott.Scott-PC/workspace-minecraft/shared/craftbukkit-1.2.5-R1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

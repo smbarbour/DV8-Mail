@@ -1,0 +1,5 @@
+name: DV8-Mail
+main: org.smbarbour.mail.Mail
+author: smbarbour
+version: '1.0'
+database: true
