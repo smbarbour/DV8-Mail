@@ -92,18 +92,50 @@ All commands and their respective permissions nodes will be listed at the bottom
     Also, ofcourse, people would not be able to message the console. It would be a 1 way deal, so that would mean that the only commands
     avalible to the console would be /mail send  and /mail all.
     
+16) Economy Use
+    The ability to make sending mail cost "money".
+    This could be done by hooking into Vault, which would be the best.
+    There should be a config option to set the amount per message.  There should be a seperate additional amount for attachements.
+    Default should be set to 0.
+    
+17) Setable messages
+    This would be used for custom messages sent to the user.  
+    EXAMPLE: to inform a user that they do not have enough money to send mail
+    This would be able to be set in the config. 
+    
+18) The ability to reload the plugin.
+    The ability to reload without have to restart the server or use the /reload command.
+    Should probably just reload the config.
+    /mail reload
+    
+19) The ability to check the Fee required to send mail
+    This would read from the config.
+    If the amount was set to 0, it would output "Sending mail is free!!"
+    /mail fee
 
-    
- 
-    
+20) An Information command.
+    This command should give basic informationa about the plugin
+    EXAMPLE: Plugin version, bukkit version is was created for, DEV/s of the plugin
+    Would also be cool if you could make it check for updates for the plugin during this phase,
+    so when it outputs the normal info, it would run a check to see if there are updates, and if
+    there are, inform the player.  Not sure about how difficult this would be, just a suggestion.
+    /mail info
+
+
+
   Commands:                                             Permissions nodes:                           non-permissions:    
     /mail                                                         Default to all users                      non-OP  
+    /mail info                                                    Default to all users                      non-OP
     /mail inbox                                                   mail.inbox    mail.user                   non-OP
     /mail inbox empty                                             mail.empty    mail.user                   non-OP
     /mail send <username> <subject> <message>                     mail.send     mail.user                   non-OP       
     /mail read <subject>                                          mail.read     mail.user                   non-OP      
     /mail delete <subject>                                        mail.delete   mail.user                   non-OP
+    /mail fee                                                     mail.fee      mail.user                   non-OP
     /mail all <subject> <message>                                 mail.all      mail.admin                  OP
+    /mail reload                                                  mail.reload   mail.admin                  OP
+  Non-Command Permissions:                                      
+     No Payment required for mail                                 mail.nopay                                
   Config:
     
     (not done with the list yet)
